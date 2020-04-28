@@ -15,3 +15,7 @@ mongoimport -d pokemon -c moves --jsonArray --file .\data\moves.json
 mongoimport -d pokemon -c items --jsonArray --file .\data\items.json
 mongoimport -d pokemon -c pokedex --jsonArray --file .\data\pokedex.json
 ```
+
+## Server Requests
+
+`curl -s localhost:9001 | python -m json.tool`
