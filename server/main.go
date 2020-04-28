@@ -4,8 +4,9 @@ import (
 	"context"
 	"encoding/json"
 	"flag"
-	"log"
+	"strconv"
 
+	"github.com/gofiber/cors"
 	"github.com/gofiber/fiber"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -54,6 +55,7 @@ type category struct {
 
 func main() {
 	app := fiber.New()
+	app.Use(cors.New())
 
 	mongoConn := flag.String("mongo", "mongodb://localhost", "Mongo DB Connection String")
 	flag.Parse()
@@ -67,11 +69,10 @@ func main() {
 	// moves := pokemonDatabase.Collection("moves")
 	// types := pokemonDatabase.Collection("types")
 
-	app.Get("/", func(c *fiber.Ctx) {
+	app.Get("/pokedex/:id", func(c *fiber.Ctx) {
 		var pokemon bson.M
-		if err := pokedex.FindOne(ctx, bson.M{}).Decode(&pokemon); err != nil {
-			log.Fatal(err)
-		}
+		id, _ := strconv.Atoi(c.Params("id"))
+		pokedex.FindOne(ctx, bson.M{"id": id}).Decode(&pokemon)
 		data, _ := json.Marshal(pokemon)
 		c.Type("application/json")
 		c.Send(data)
