@@ -7,3 +7,11 @@ Helpful information about the pocket monsters from the Kanto region onwards
 [Go Mongo Driver](https://pkg.go.dev/go.mongodb.org/mongo-driver)
 [Pokemon Data](https://github.com/fanzeyi/pokemon.json)
 [Node Fetch](https://github.com/node-fetch/node-fetch)
+
+## Ingest Data to MongoDB
+```
+mongoimport -d pokemon -c types --jsonArray --file .\data\types.json
+mongoimport -d pokemon -c moves --jsonArray --file .\data\moves.json
+mongoimport -d pokemon -c items --jsonArray --file .\data\items.json
+mongoimport -d pokemon -c pokedex --jsonArray --file .\data\pokedex.json
+```
