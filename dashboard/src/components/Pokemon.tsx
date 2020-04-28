@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Stack, Text, FontWeights, IStackTokens } from 'office-ui-fabric-react';
+import { TypePill } from './TypePill';
 
 const boldStyle = { root: { fontWeight: FontWeights.semibold } };
 
@@ -17,12 +18,16 @@ const spacing: IStackTokens = {
 export const Pokemon: React.FunctionComponent<Props> = (props) => {
   return (
     <Stack>
-      <img src={`images/${props.num}.png`} alt={props.name}/>
+      {/* <Image>
+        src={`images/${props.num}.png`}
+        alt={props.name}
+      </Image> */}
+      <img src={`images/${props.num}.png`} alt={props.name} width="200px"></img>
       <Text>#{props.num}</Text>
       <Text variant="xxLarge" styles={boldStyle}>{props.name}</Text>
       <Stack horizontal tokens={spacing}>
-        {props.types.map((user, index) =>
-            <Text>{user}</Text>
+        {props.types.map((typeName, index) =>
+            <TypePill type={typeName} key={index} />
         )}
       </Stack>
     </Stack>
