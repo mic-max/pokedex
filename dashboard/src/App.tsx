@@ -1,5 +1,6 @@
 import React from 'react';
 import { Stack, Text, FontWeights } from 'office-ui-fabric-react';
+import Pokedex from './components/Pokedex';
 
 const boldStyle = { root: { fontWeight: FontWeights.semibold } };
 
@@ -27,6 +28,7 @@ export const App: React.FunctionComponent = () => {
       <Text variant="xxLarge" styles={boldStyle}>
         Welcome to the world of pocket monsters!
       </Text>
+      <Pokedex />
     </Stack>
   );
 };
