@@ -4,12 +4,18 @@ import { Text } from 'office-ui-fabric-react';
 
 interface Props {
     type: string
-}
+};
 
 const styles: { [id: string]: any } = {
     Grass: {
         backgroundColor: '#9bcc50',
-        color: '#212121'
+        color: '#212121',
+        borderRadius: '3px',
+        lineHeight: '18px',
+        width: '38%',
+        maxWidth: '110px',
+        textAlign: 'center',
+        fontSize: '11px'
     },
     Poison: {
         backgroundColor: '#b97fc9',
@@ -27,7 +33,7 @@ const styles: { [id: string]: any } = {
         backgroundColor: '#4592c4',
         color: '#fff'
     }
-}
+};
 
 export const TypePill: React.FunctionComponent<Props> = (props) => {
   return (

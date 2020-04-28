@@ -9,7 +9,7 @@ interface Props {
     num: string;
     name: string;
     types: string[]
-}
+};
 
 const spacing: IStackTokens = {
     childrenGap: 10

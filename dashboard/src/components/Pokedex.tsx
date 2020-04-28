@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Stack } from 'office-ui-fabric-react';
-import { Pokemon } from './Pokemon'
+import { Pokemon } from './Pokemon';
 
 export default class Pokedex extends React.Component {
     render() {
@@ -30,10 +30,10 @@ export default class Pokedex extends React.Component {
         fetch("http://localhost:9001/pokedex/150")
             .then(res => res.json())
             .then(json => console.log(json))
-            .catch(err => console.error(err))
+            .catch(err => console.error(err));
     }
 
     zeroPad(num: number): string {
-        return ("" + num).padStart(3, '0')
+        return ("" + num).padStart(3, '0');
     }
 };
