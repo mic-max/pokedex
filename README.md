@@ -18,4 +18,4 @@ mongoimport -d pokemon -c pokedex --jsonArray --file .\data\pokedex.json
 
 ## Server Requests
 
-`curl -s localhost:9001 | python -m json.tool`
+`curl -s localhost:9001/pokedex/150 | python -m json.tool`
