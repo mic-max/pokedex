@@ -8,14 +8,11 @@ export const App: React.FunctionComponent = () => {
   return (
     <Stack
       horizontalAlign="center"
-      verticalAlign="center"
-      verticalFill
       styles={{
         root: {
           width: '960px',
           margin: '0 auto',
-          textAlign: 'center',
-          color: '#605e5c'
+          color: '#313131'
         }
       }}
       gap={15}
@@ -24,6 +21,7 @@ export const App: React.FunctionComponent = () => {
         src="pokemon_logo.png"
         alt="logo"
         height="120px"
+        style={{marginTop: '15px'}}
       />
       <Text variant="xxLarge" styles={boldStyle}>
         Welcome to the world of pocket monsters!

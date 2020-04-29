@@ -19,19 +19,53 @@ const styles: { [id: string]: any } = {
     },
     Poison: {
         backgroundColor: '#b97fc9',
-        color: '#fff'
+        color: '#fff',
+        borderRadius: '3px',
+        lineHeight: '18px',
+        width: '38%',
+        maxWidth: '110px',
+        textAlign: 'center',
+        fontSize: '11px'
     },
     Fire: {
         backgroundColor: '#fd7d24',
-        color: '#fff'
+        color: '#fff',
+        borderRadius: '3px',
+        lineHeight: '18px',
+        width: '38%',
+        maxWidth: '110px',
+        textAlign: 'center',
+        fontSize: '11px'
     },
     Flying: {
         backgroundColor: '#3dc7ef',
-        color: '#212121'
+        color: '#212121',
+        borderRadius: '3px',
+        lineHeight: '18px',
+        width: '38%',
+        maxWidth: '110px',
+        textAlign: 'center',
+        fontSize: '11px'
     },
     Water: {
         backgroundColor: '#4592c4',
-        color: '#fff'
+        color: '#fff',
+        borderRadius: '3px',
+        lineHeight: '18px',
+        width: '38%',
+        maxWidth: '110px',
+        textAlign: 'center',
+        fontSize: '11px'
+    },
+    Bug: {
+        backgroundColor: '#729f3f',
+        color: '#fff',
+        borderRadius: '3px',
+        lineHeight: '18px',
+        width: '38%',
+        maxWidth: '110px',
+        textAlign: 'center',
+        fontSize: '11px'
     }
 };
 

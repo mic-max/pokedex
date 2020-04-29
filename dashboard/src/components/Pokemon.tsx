@@ -22,7 +22,7 @@ export const Pokemon: React.FunctionComponent<Props> = (props) => {
         src={`images/${props.num}.png`}
         alt={props.name}
       </Image> */}
-      <img src={`images/${props.num}.png`} alt={props.name} width="200px"></img>
+      <img src={`images/${props.num}.png`} alt={props.name} width="180px"></img>
       <Text>#{props.num}</Text>
       <Text variant="xxLarge" styles={boldStyle}>{props.name}</Text>
       <Stack horizontal tokens={spacing}>
