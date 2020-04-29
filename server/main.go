@@ -70,10 +70,30 @@ func main() {
 	// types := pokemonDatabase.Collection("types")
 
 	app.Get("/pokedex/:id", func(c *fiber.Ctx) {
-		var pokemon bson.M
+		var poke bson.M
 		id, _ := strconv.Atoi(c.Params("id"))
-		pokedex.FindOne(ctx, bson.M{"id": id}).Decode(&pokemon)
-		data, _ := json.Marshal(pokemon)
+		pokedex.FindOne(ctx, bson.M{"id": id}).Decode(&poke)
+
+		data, _ := json.Marshal(poke)
+		c.Type("application/json")
+		c.Send(data)
+	})
+
+	app.Get("/pokedex/range/:startID/:endID", func(c *fiber.Ctx) {
+		startID, _ := strconv.Atoi(c.Params("startID"))
+		endID, _ := strconv.Atoi(c.Params("endID"))
+		opts := options.Find()
+		opts.SetSort(bson.D{{"id", 1}})
+		sortCursor, _ := pokedex.Find(ctx, bson.D{
+			{"id", bson.D{
+				{"$gte", startID},
+				{"$lt", endID},
+			}},
+		}, opts)
+		var pokemonSorted []bson.M
+		sortCursor.All(ctx, &pokemonSorted)
+
+		data, _ := json.Marshal(pokemonSorted)
 		c.Type("application/json")
 		c.Send(data)
 	})

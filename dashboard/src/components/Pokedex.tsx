@@ -7,10 +7,32 @@ const spacing: IStackTokens = {
     childrenGap: 20
 };
 
-export default class Pokedex extends React.Component {
+export default class Pokedex extends React.Component<{}, {}> {
+    constructor(props: any) {
+        super(props);
+        this.state = {
+            pokemon: []
+        };
+        // nextId: 13,
+        // numberPerFetch: 12
+    }
+
+    componentDidMount() {
+        fetch("http://localhost:9001/pokedex/range/1/13")
+            .then(res => res.json())
+            .then(json => {
+                this.setState(state => {
+                    // return {pokemon: state.pokemon.concat(json)}
+                });
+            })
+            .catch(err => console.error(err));
+    }
+
     render() {
         return (
             <Stack tokens={spacing}>
+                {/* <pre>{this.state.pokemon}</pre> */}
+
                 <Stack horizontal tokens={spacing}>
                     <Pokemon num={this.zeroPad(1)} name="Bulbasaur" types={["Grass", "Poison"]}/>
                     <Pokemon num={this.zeroPad(2)} name="Ivysaur" types={["Grass", "Poison"]}/>
@@ -29,15 +51,9 @@ export default class Pokedex extends React.Component {
                     <Pokemon num={this.zeroPad(11)} name="Metapod" types={["Bug"]}/>
                     <Pokemon num={this.zeroPad(12)} name="Butterfree" types={["Bug", "Flying"]}/>
                 </Stack>
+                {/* TODO add a load more button */}
             </Stack>
         );
-    }
-
-    componentDidMount() {
-        fetch("http://localhost:9001/pokedex/150")
-            .then(res => res.json())
-            .then(json => console.log(json))
-            .catch(err => console.error(err));
     }
 
     zeroPad(num: number): string {
